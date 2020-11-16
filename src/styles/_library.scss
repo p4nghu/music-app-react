@@ -1,0 +1,67 @@
+.library {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 20rem;
+  height: 100%;
+  overflow: scroll;
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+  box-shadow: 2px 2px 50px rgb(221,221,221);
+  &.active {
+  transform: translateX(0);
+  }
+  h1 {
+    padding: 2rem;
+  }
+  .library-items {
+    .library-item{
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      img{
+        border-radius: .25rem;
+        width: 25%;
+      }
+      &:hover {
+        background-color: rgb(222,222,255);
+      };
+      &.active {
+        background-color: violet;
+      }
+      .library-item-info {
+        padding-left: 1rem;
+        h3 {
+          padding: .25rem 0;
+          font-size: 1rem;
+        }
+        h4 {
+          padding: .25rem 0;
+          font-size: .7rem;
+        }
+      }
+    }
+
+  }
+}
+
+/* The emerging W3C standard
+   that is currently Firefox-only */
+   * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
+  }
+  
+  /* Works on Chrome/Edge/Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(155, 155, 155, 0.7);
+    border-radius: 20px;
+    border: transparent;
+  }
