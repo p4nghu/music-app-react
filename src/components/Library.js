@@ -12,7 +12,7 @@ function Library({
 }) {
   return (
     <div className={`library ${activeLibrary? "active": ""}`}>
-      <h1>Library</h1>
+      <h2>Library</h2>
       <div className="library-items">
         {songs.map((song) => (
           <LibraryItem

@@ -4,13 +4,13 @@ import Player from "./components/Player";
 import Song from "./components/Song";
 import data from "./util";
 import Library from "./components/Library";
-import Nav from './components/Nav'
+import Nav from "./components/Nav";
 function App() {
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [songInfo, setSongInfo] = useState({ current: 0, duration: 0 });
-  const [activeLibrary, setActiveLibrary] = useState(false)
+  const [activeLibrary, setActiveLibrary] = useState(false);
 
   const audioRef = useRef(null);
 
@@ -22,30 +22,32 @@ function App() {
     });
   };
 
-  const endedHandler = async() => {
+  const endedHandler = async () => {
     const prevIndex = songs.indexOf(currentSong);
     let nextIndex = prevIndex === songs.length - 1 ? 0 : prevIndex + 1;
-    await setCurrentSong(songs[nextIndex])
-    audioRef.current.play()
+    await setCurrentSong(songs[nextIndex]);
+    audioRef.current.play();
   };
 
   return (
-    <div className={`app ${activeLibrary?"active": ""}`}>
-      <Nav
-      activeLibrary={activeLibrary}
-      setActiveLibrary={setActiveLibrary}
-      />
-      <Song currentSong={currentSong} />
-      <Player
-        songs={songs}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
-        audioRef={audioRef}
-        songInfo={songInfo}
-        setSongInfo={setSongInfo}
-      />
+    <div className="app">
+      <div className={`music ${activeLibrary? "active": ""}`}>
+        <Nav
+          activeLibrary={activeLibrary}
+          setActiveLibrary={setActiveLibrary}
+        />
+        <Song currentSong={currentSong} />
+        <Player
+          songs={songs}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+          audioRef={audioRef}
+          songInfo={songInfo}
+          setSongInfo={setSongInfo}
+        />
+      </div>
       <Library
         activeLibrary={activeLibrary}
         songs={songs}
