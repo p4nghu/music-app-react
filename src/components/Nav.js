@@ -10,12 +10,12 @@ const Nav = ({activeLibrary,setActiveLibrary}) => {
   return (
     <div className="nav">
       <h1>Music</h1>
-      <div className="toggle-library">
+
         <button onClick={handleToggleLibrary} className={activeLibrary?"active": ""}>
           <FontAwesomeIcon icon={faMusic} />
           <span>Library</span>
         </button>
-      </div>
+
     </div>
   );
 };

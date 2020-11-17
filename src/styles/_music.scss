@@ -1,14 +1,22 @@
 .music {
-  margin: auto;
-  max-width: 50rem;
-  padding-left: 0;
-  transition: all .5s ease;
-  &.active {
-    width: 80%;
-    padding-left: 20rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  flex-basis: 100%;
+}
+@media (min-width: 576px) {
+  .music {
+    max-width: 960px;
+    padding-left: 0;
+    padding-right: 0;
+    flex-basis: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.5s ease;
+    &.active {
+      padding-left: 20rem;
+    }
   }
 }
-
 @import "./song";
 @import "./player";
 @import "./nav";

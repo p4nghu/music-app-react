@@ -40,7 +40,7 @@ function App() {
           activeLibrary={activeLibrary}
           setActiveLibrary={setActiveLibrary}
         />
-        <Song currentSong={currentSong} />
+        <Song currentSong={currentSong} isPlaying={isPlaying} />
         <Player
           songs={songs}
           currentSong={currentSong}

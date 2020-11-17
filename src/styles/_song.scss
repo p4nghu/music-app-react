@@ -1,15 +1,35 @@
 .song-container {
   min-height: 60vh;
+  min-height: calc(var(--vh, 1vh) * 60);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   img {
+    animation:rotating 60s linear infinite;
+    animation-play-state:paused;
     max-width: 50%;
     border-radius: 50%;
+  }
+  img.isplaying {
+    animation-play-state:running;
   }
   h2 {
     padding: 2rem 1rem 1rem 1rem;
   }
 }
+.image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin:-60px 0 0 -60px;
 
+}
+
+
+@keyframes rotating {
+  from { transform: rotate(0) }
+  to { transform: rotate(360deg) }
+}
