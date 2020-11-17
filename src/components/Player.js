@@ -34,21 +34,21 @@ function Player({
       setIsPlaying(!isPlaying);
     }
   };
-  const skipHandler = async(skip) => {
+  const skipHandler = async (skip) => {
     const prevIndex = songs.findIndex((song) => song === currentSong);
     let nextIndex;
     if (skip === "back") {
-      nextIndex = prevIndex === 0? songs.length -1: prevIndex - 1
+      nextIndex = prevIndex === 0 ? songs.length - 1 : prevIndex - 1
     } else if (skip === "forward") {
-      nextIndex = prevIndex === songs.length -1? 0: prevIndex + 1
+      nextIndex = prevIndex === songs.length - 1 ? 0 : prevIndex + 1
     }
     await setCurrentSong(songs[nextIndex]);
     if (isPlaying) {
       let promise = audioRef.current.play();
-      if(promise !== undefined) {
-        promise.then(()=>{
+      if (promise !== undefined) {
+        promise.then(() => {
           console.log('play')
-        }).catch((e)=>{console.log("err")})
+        }).catch((e) => { console.log("err") })
       }
     }
   };
@@ -60,17 +60,23 @@ function Player({
       current: e.target.value,
     });
   }
+  const trackStyle = {
+    transform: `translateX(${songInfo.trackPercentage}%)`
+  }
   return (
     <div className="player">
       <div className="time-ctrl">
         <p>{formatTime(songInfo.current)}</p>
-        <input
-          min="0"
-          max={songInfo.duration || 0}
-          value={songInfo.current}
-          type="range"
-          onChange={dragHandler}
-        />
+        <div className="track" style={{background: `linear-gradient(to right, ${currentSong.color[0]}, ${currentSong.color[1]})`}}>
+          <input
+            min="0"
+            max={songInfo.duration || 0}
+            value={songInfo.current}
+            type="range"
+            onChange={dragHandler}
+          />
+          <div className="animate-track" style={trackStyle}></div>
+        </div>
         <p>{formatTime(songInfo.duration)}</p>
       </div>
       <div className="play-ctrl">
@@ -87,7 +93,7 @@ function Player({
           size="2x"
         />
         <FontAwesomeIcon
-          onClick={()=>skipHandler('forward')}
+          onClick={() => skipHandler('forward')}
           className="skip-forward"
           icon={faAngleRight}
           size="2x"
