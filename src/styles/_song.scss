@@ -1,6 +1,6 @@
 .song-container {
-  min-height: 60vh;
-  min-height: calc(var(--vh, 1vh) * 60);
+  height: 60vh;
+  height: calc(var(--vh, 1vh) * 60);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,14 +8,18 @@
   img {
     animation:rotating 60s linear infinite;
     animation-play-state:paused;
-    max-width: 50%;
+    width: 50%;
     border-radius: 50%;
   }
   img.isplaying {
     animation-play-state:running;
   }
   h2 {
+    flex: 0 0 auto;
     padding: 2rem 1rem 1rem 1rem;
+  }
+  h3 {
+    flex: 0 0 auto;
   }
 }
 .image {
@@ -32,4 +36,13 @@
 @keyframes rotating {
   from { transform: rotate(0) }
   to { transform: rotate(360deg) }
+}
+
+@media (min-width: 750px) {
+  .song-container {
+    img {
+      width: auto;
+      max-height: 80%;
+    }
+  }
 }
