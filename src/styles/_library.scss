@@ -9,38 +9,41 @@
   transition: all 0.5s ease;
   background-color: rgb(255, 255, 255);
   &.active {
-  transform: translateX(0);
-  box-shadow: 2px 2px 50px rgb(221,221,221);
+    transform: translateX(0);
+    box-shadow: 2px 2px 50px rgb(221, 221, 221);
   }
   h2 {
     padding: 2rem;
   }
   .library-items {
-    .library-item{
+    .library-item {
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       cursor: pointer;
-      img{
-        border-radius: .25rem;
+      img {
+        border-radius: 0.25rem;
         width: 25%;
       }
       &.active {
-        background-color: violet;
+        background-color: #f0f0f0;
+        h3,
+        h4 {
+          color: rgb(0, 0, 0);
+        }
       }
       .library-item-info {
         padding-left: 1rem;
         h3 {
-          padding: .25rem 0;
+          padding: 0.25rem 0;
           font-size: 1rem;
         }
         h4 {
-          padding: .25rem 0;
-          font-size: .7rem;
+          padding: 0.25rem 0;
+          font-size: 0.7rem;
         }
       }
     }
-
   }
 }
 @media (min-width: 768px) {
@@ -50,20 +53,20 @@
 }
 /* The emerging W3C standard
    that is currently Firefox-only */
-   * {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
-  }
-  
-  /* Works on Chrome/Edge/Safari */
-  *::-webkit-scrollbar {
-    width: 5px;
-  }
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  *::-webkit-scrollbar-thumb {
-    background-color: rgba(155, 155, 155, 0.7);
-    border-radius: 20px;
-    border: transparent;
-  }
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.7) transparent;
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(155, 155, 155, 0.7);
+  border-radius: 20px;
+  border: transparent;
+}

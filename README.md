@@ -1,5 +1,5 @@
 # 在线预览
-gitee pages:[http://cccchenyuhao.gitee.io/music-app-react/](http://cccchenyuhao.gitee.io/music-app-react/)
+gitee pages:[https://cccchenyuhao.gitee.io/music-app-react/](https://cccchenyuhao.gitee.io/music-app-react/)
 
 github pages:[https://p4nghu.github.io/music-app-react/](https://p4nghu.github.io/music-app-react/)
 
